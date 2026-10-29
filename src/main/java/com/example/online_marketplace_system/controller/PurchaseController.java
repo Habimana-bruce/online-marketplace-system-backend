@@ -2,6 +2,7 @@
 package com.example.online_marketplace_system.controller;
 
 import com.example.online_marketplace_system.domain.Purchase;
+import com.example.online_marketplace_system.domain.PurchaseStatus;
 import com.example.online_marketplace_system.service.PurchaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,10 +51,20 @@ public class PurchaseController {
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable UUID id) {
+
         String msg = service.delete(id);
+
         if (msg.contains("does not exist")) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
         }
         return ResponseEntity.ok(msg);
     }
-}
+
+    @GetMapping("/by-status")
+
+    public List<Purchase> getByStatus(@RequestParam("status") PurchaseStatus status) {
+
+        return service.getPurchasesByStatus(status);
+
+    }
+    }

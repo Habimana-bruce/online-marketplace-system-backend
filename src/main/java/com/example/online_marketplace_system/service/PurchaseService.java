@@ -1,6 +1,7 @@
 package com.example.online_marketplace_system.service;
 
 import com.example.online_marketplace_system.domain.Purchase;
+import com.example.online_marketplace_system.domain.PurchaseStatus;
 import com.example.online_marketplace_system.repository.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,5 +50,11 @@ public class PurchaseService {
             return "Purchase deleted successfully";
         }
         return "The purchase with that id does not exist";
+    }
+
+
+    public List<Purchase> getPurchasesByStatus(PurchaseStatus status) {
+
+        return repository.findByStatusOrderByPurchaseDateAsc(status);
     }
 }
