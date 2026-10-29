@@ -1,0 +1,251 @@
+{
+  "info": {
+    "_postman_id": "9fcf9c37-6768-4bcd-a10b-41e7faf6e6a4",
+    "name": "online-marketplace-system-midterm.postman_collection.json",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "56281642",
+    "_collection_link": "https://go.postman.co/collection/56281642-9fcf9c37-6768-4bcd-a10b-41e7faf6e6a4?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "product-categories",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Electronics\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/product-categories/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "product-categories",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "storefronts",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"storefrontNumber\": 1,\r\n    \"name\": \"Kigali Heights Shop\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/storefronts/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "storefronts",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "buyers",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Alain\",\r\n    \"lastName\": \"Habimana\",\r\n    \"username\": \"bruce27\",\r\n    \"email\": \"alain@example.com\",\r\n    \"phone\": \"0780000001\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/buyers/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "buyers",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"shopName\": \"Tech & Style Hub\",\r\n    \"ownerName\": \"Patrick\",\r\n    \"phone\": \"0790000001\",\r\n    \r\n\r\n    \"productCategories\": [\r\n        { \"id\": \"52be4cab-a5e9-467c-8638-736f0382ea36\" },\r\n        { \"id\": \"6dbd33d3-64af-4275-8bef-b490cc5e14ce\" }\r\n    ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/sellers/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sellers",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "product-categories",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Furniture\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/product-categories/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "product-categories",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/storefronts/all",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"storefrontNumber\": 4,\r\n    \"name\": \"Nyabugogo Stall\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/storefronts/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "storefronts",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/sellers/all",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n  \"shopName\": \"Kigali Trendz\",\r\n  \"ownerName\": \"Claude\",\r\n  \"phone\": \"0790000003\",\r\n  \"storefront\": {\r\n    \"id\": \"16ce87aa-d71c-4a09-bf46-e1b44b249bf4\"\r\n  },\r\n  \"productCategories\": [\r\n    {\r\n      \"id\": \"6dbd33d3-64af-4275-8bef-b490cc5e14ce\"\r\n    }\r\n  ]\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/sellers/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sellers",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/purchases/all",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "\r\n{\r\n  \"purchaseDate\": \"2026-11-25\",\r\n  \"status\": \"PLACED\",\r\n  \"productName\": \"Office Chair\",\r\n  \"quantity\": 1,\r\n  \"buyer\": {\r\n    \"id\": \"424f58e8-4329-4fe5-9ad5-834afd375bec\"\r\n  },\r\n  \"seller\": {\r\n    \"id\": \"cabf1f35-a433-470d-8741-188f26776140\"\r\n  }\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/purchases/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "purchases",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
