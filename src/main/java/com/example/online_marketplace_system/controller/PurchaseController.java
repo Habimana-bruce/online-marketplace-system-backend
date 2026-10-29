@@ -9,9 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/purchases")
@@ -67,4 +69,12 @@ public class PurchaseController {
         return service.getPurchasesByStatus(status);
 
     }
+
+    @GetMapping("/between")
+    public List<Purchase> getBetween(
+            @RequestParam("start") LocalDate start,
+            @RequestParam("end") LocalDate end) {
+        return service.getPurchasesBetweenDates(start, end);
+    }
+
     }

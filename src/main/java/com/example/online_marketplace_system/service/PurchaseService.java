@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.time.LocalDate;
 
 @Service
 public class PurchaseService {
@@ -56,5 +57,9 @@ public class PurchaseService {
     public List<Purchase> getPurchasesByStatus(PurchaseStatus status) {
 
         return repository.findByStatusOrderByPurchaseDateAsc(status);
+    }
+
+    public List<Purchase> getPurchasesBetweenDates(LocalDate start, LocalDate end) {
+        return repository.findByPurchaseDateBetweenOrderByPurchaseDateAsc(start, end);
     }
 }
