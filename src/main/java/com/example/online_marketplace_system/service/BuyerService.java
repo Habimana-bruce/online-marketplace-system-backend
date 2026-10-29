@@ -49,4 +49,8 @@ public class BuyerService {
         }
         return "The buyer with that id does not exist";
     }
+
+    public List<Buyer> getBuyersByLastName(String lastName){
+        return repository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
 }

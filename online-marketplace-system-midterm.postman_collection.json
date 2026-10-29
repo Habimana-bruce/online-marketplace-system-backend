@@ -10,7 +10,7 @@
     {
       "name": "product-categories",
       "request": {
-        "method": "POST",
+        "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
@@ -22,7 +22,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/api/product-categories/save",
+          "raw": "http://localhost:8080/api/product-categories/all",
           "protocol": "http",
           "host": [
             "localhost"
@@ -31,7 +31,7 @@
           "path": [
             "api",
             "product-categories",
-            "save"
+            "all"
           ]
         }
       },
@@ -70,7 +70,7 @@
     {
       "name": "buyers",
       "request": {
-        "method": "POST",
+        "method": "GET",
         "header": [],
         "body": {
           "mode": "raw",
@@ -82,7 +82,7 @@
           }
         },
         "url": {
-          "raw": "http://localhost:8080/api/buyers/save",
+          "raw": "http://localhost:8080/api/buyers/all",
           "protocol": "http",
           "host": [
             "localhost"
@@ -91,7 +91,7 @@
           "path": [
             "api",
             "buyers",
-            "save"
+            "all"
           ]
         }
       },
@@ -242,6 +242,33 @@
             "api",
             "purchases",
             "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/buyers/by-last-name",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/buyers/by-last-name?lastName=habimana",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "buyers",
+            "by-last-name"
+          ],
+          "query": [
+            {
+              "key": "lastName",
+              "value": "habimana"
+            }
           ]
         }
       },

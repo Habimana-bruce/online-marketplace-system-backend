@@ -55,4 +55,10 @@ public class BuyerController {
         }
         return ResponseEntity.ok(msg);
     }
+
+    @GetMapping("/by-last-name")
+    public List<Buyer> getByLastName(@RequestParam("lastName") String lastName) {
+        return service.getBuyersByLastName(lastName);
+    }
+
 }
