@@ -52,4 +52,9 @@ public class StorefrontService {
         }
         return "The storefront with that id does not exist";
     }
+
+    public List<Storefront>  getFreeStorefronts(){
+
+        return repository.findFreeStorefronts();
+    }
 }

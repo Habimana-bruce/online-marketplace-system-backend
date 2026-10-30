@@ -398,6 +398,38 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/storefronts/free",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/storefronts/free",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "storefronts",
+            "free"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Untitled Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
     }
   ]
 }

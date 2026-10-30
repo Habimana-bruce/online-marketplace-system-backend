@@ -55,4 +55,10 @@ public class StorefrontController {
         }
         return ResponseEntity.ok(msg);
     }
+
+    @GetMapping("/free")
+    public List<Storefront> getFreestronts(){
+
+        return service.getFreeStorefronts();
+    }
 }
