@@ -451,6 +451,28 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/buyers/of-seller/454c2271-8f5f-418c-b46e-33a25b2c69d3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/buyers/of-seller/454c2271-8f5f-418c-b46e-33a25b2c69d3",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "buyers",
+            "of-seller",
+            "454c2271-8f5f-418c-b46e-33a25b2c69d3"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

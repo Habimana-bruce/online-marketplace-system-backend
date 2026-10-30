@@ -61,4 +61,9 @@ public class BuyerController {
         return service.getBuyersByLastName(lastName);
     }
 
+    @GetMapping("/of-seller/{sellerId}")
+    public ResponseEntity<Object> getBuyerOfSeller(@PathVariable UUID sellerId) {
+        return service.getBuyersOfSeller(sellerId);
+    }
+
 }

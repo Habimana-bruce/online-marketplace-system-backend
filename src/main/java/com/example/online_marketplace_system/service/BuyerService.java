@@ -2,7 +2,9 @@ package com.example.online_marketplace_system.service;
 
 import com.example.online_marketplace_system.domain.Buyer;
 import com.example.online_marketplace_system.repository.BuyerRepository;
+import com.example.online_marketplace_system.repository.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,5 +54,17 @@ public class BuyerService {
 
     public List<Buyer> getBuyersByLastName(String lastName){
         return repository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
+ @Autowired 
+    private SellerRepository sellerRepository;
+
+    public ResponseEntity<Object> getBuyersOfSeller(UUID sellerId){
+        if (!sellerRepository.existsById(sellerId)) {
+            return ResponseEntity.status(org.springframework.http.HttpStatus.NOT_FOUND)
+                    .body("the seller with that id does not exist");
+        }
+      List<Buyer> buyers = repository.findBuyersBySellerId(sellerId);
+        return ResponseEntity.ok(buyers);
+
     }
 }
