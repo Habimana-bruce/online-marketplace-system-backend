@@ -430,6 +430,27 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/product-categories/unused",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/product-categories/unused",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "product-categories",
+            "unused"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

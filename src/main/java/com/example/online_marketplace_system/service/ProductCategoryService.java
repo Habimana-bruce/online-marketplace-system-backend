@@ -45,4 +45,9 @@ public class ProductCategoryService {
         }
         return "The product category with that id does not exist";
     }
+
+    public List<ProductCategory> getUnusedProductCategories(){
+
+        return repository.findUnusedProductCategories();
+    }
 }
