@@ -48,4 +48,9 @@ public class SellerService {
         }
         return "The seller with that id does not exist";
     }
+
+    public List<Seller>getSellersByProductCategory(String name){
+
+        return repository.findByProductCategoryName(name);
+    }
 }

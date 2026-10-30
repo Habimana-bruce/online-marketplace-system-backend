@@ -340,6 +340,64 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/buyers/update/b0ffa8d2-14f2-4bee-b19b-c92383f596c8",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"firstName\": \"Alain\",\r\n    \"lastName\": \"Habimana\",\r\n    \"username\": \"bruce27\",\r\n    \"email\": \"alain@gmail.com\",\r\n    \"phone\": \"0780000001\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/buyers/update/b0ffa8d2-14f2-4bee-b19b-c92383f596c8",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "buyers",
+            "update",
+            "b0ffa8d2-14f2-4bee-b19b-c92383f596c8"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/sellers/by-product-category",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/sellers/by-product-category?name=fashion",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sellers",
+            "by-product-category"
+          ],
+          "query": [
+            {
+              "key": "name",
+              "value": "fashion"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

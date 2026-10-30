@@ -55,4 +55,9 @@ public class SellerController {
         }
         return ResponseEntity.ok(msg);
     }
+
+    @GetMapping("/by-product-category")
+    public List<Seller> getByProductCategory(@RequestParam("name")String name){
+        return  service.getSellersByProductCategory(name);
+    }
 }
