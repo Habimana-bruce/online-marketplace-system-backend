@@ -22,9 +22,17 @@ public class PurchaseController {
     private PurchaseService service;
 
     @PostMapping("/save")
-    public ResponseEntity<String> save(@RequestBody Purchase purchase) {
+    public ResponseEntity<String> savePurchase(@RequestBody Purchase purchase) {
         String msg = service.save(purchase);
-        return ResponseEntity.status(HttpStatus.CREATED).body(msg);
+
+        if (msg.equals("Purchase date cannot be in the past")) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(msg);
+        }
+        if (msg.equals("Seller already has a purchase on that date")) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(msg);
+        }
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(msg); 
     }
 
     @GetMapping("/all")
@@ -76,5 +84,7 @@ public class PurchaseController {
             @RequestParam("end") LocalDate end) {
         return service.getPurchasesBetweenDates(start, end);
     }
+
+
 
     }

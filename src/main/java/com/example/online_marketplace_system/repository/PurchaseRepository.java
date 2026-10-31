@@ -15,6 +15,6 @@ public interface PurchaseRepository extends JpaRepository<Purchase, UUID>{
 
     List<Purchase> findByPurchaseDateBetweenOrderByPurchaseDateAsc(LocalDate start, LocalDate end);
 
-
+  boolean existsBySellerIdAndPurchaseDateAndStatusNot(UUID sellerId, LocalDate purchaseDate, PurchaseStatus status);
 }
 

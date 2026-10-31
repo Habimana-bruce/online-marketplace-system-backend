@@ -473,6 +473,36 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/purchases/save",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"purchaseDate\": \"2026-11-01\",\r\n    \"productName\": \"Wireless Mouse\",\r\n    \"quantity\": 2,\r\n    \"buyer\": {\r\n        \"id\": \"d4079dab-d309-43df-8136-fd4fbf8560d9\"\r\n    },\r\n    \"seller\": {\r\n        \"id\": \"454c2271-8f5f-418c-b46e-33a25b2c69d3\"\r\n    }\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/purchases/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "purchases",
+            "save"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
