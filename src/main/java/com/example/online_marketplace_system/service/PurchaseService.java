@@ -53,31 +53,52 @@ public class PurchaseService {
     public String update(UUID id, Purchase updated) {
         Optional<Purchase> existing = repository.findById(id);
         if (existing.isPresent()) {
-
             Purchase purchase = existing.get();
-
             purchase.setPurchaseDate(updated.getPurchaseDate());
-
-            purchase.setStatus(updated.getStatus());
-
             purchase.setProductName(updated.getProductName());
-
             purchase.setQuantity(updated.getQuantity());
-
             purchase.setBuyer(updated.getBuyer());
-
             purchase.setSeller(updated.getSeller());
-
             repository.save(purchase);
-
             return "Purchase updated successfully";
         }
         return "The purchase with that id does not exist";
     }
 
+    @Transactional
+    public String updateStatus(UUID id, PurchaseStatus newStatus) {
+        Optional<Purchase> existing = repository.findById(id);
+        if (!existing.isPresent()) {
+            return "The purchase with that id does not exist";
+        }
+
+        Purchase purchase = existing.get();
+        PurchaseStatus current = purchase.getStatus();
+        boolean isValid = false;
+
+        if (current == PurchaseStatus.PLACED) {
+            if (newStatus == PurchaseStatus.SHIPPED || newStatus == PurchaseStatus.CANCELLED) {
+                isValid = true;
+            }
+        } else if (current == PurchaseStatus.SHIPPED) {
+            if (newStatus == PurchaseStatus.DELIVERED || newStatus == PurchaseStatus.CANCELLED) {
+                isValid = true;
+            }
+        } else if (current == PurchaseStatus.DELIVERED || current == PurchaseStatus.CANCELLED) {
+            isValid = false;
+        }
+
+        if (!isValid) {
+            return "Cannot change status from " + current + " to " + newStatus;
+        }
+
+        purchase.setStatus(newStatus);
+        repository.save(purchase);
+        return "Purchase status updated successfully";
+    }
+
     public String delete(UUID id) {
         if (repository.existsById(id)) {
-
             repository.deleteById(id);
             return "Purchase deleted successfully";
         }
@@ -85,13 +106,10 @@ public class PurchaseService {
     }
 
     public List<Purchase> getPurchasesByStatus(PurchaseStatus status) {
-
         return repository.findByStatusOrderByPurchaseDateAsc(status);
     }
 
     public List<Purchase> getPurchasesBetweenDates(LocalDate start, LocalDate end) {
-
-
         return repository.findByPurchaseDateBetweenOrderByPurchaseDateAsc(start, end);
     }
 }

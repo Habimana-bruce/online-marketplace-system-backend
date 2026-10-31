@@ -503,6 +503,43 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/purchases/33e16ac9-3da7-405e-96d4-6dcc7857bec3/status",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/purchases/33e16ac9-3da7-405e-96d4-6dcc7857bec3/status?status=DELIVERED",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "purchases",
+            "33e16ac9-3da7-405e-96d4-6dcc7857bec3",
+            "status"
+          ],
+          "query": [
+            {
+              "key": "status",
+              "value": "DELIVERED"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

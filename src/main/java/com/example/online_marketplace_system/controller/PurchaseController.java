@@ -85,6 +85,20 @@ public class PurchaseController {
         return service.getPurchasesBetweenDates(start, end);
     }
 
+    @PatchMapping("/{id}/status")
+    public ResponseEntity<String> updateStatus(
+            @PathVariable UUID id,
+            
+            @RequestParam("status") PurchaseStatus status) {
+        String msg = service.updateStatus(id, status);
 
+        if (msg.equals("The purchase with that id does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
+        }
+        if (msg.startsWith("Cannot change status")) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(msg);
+        }
+        return ResponseEntity.ok(msg);
+    }
 
     }
