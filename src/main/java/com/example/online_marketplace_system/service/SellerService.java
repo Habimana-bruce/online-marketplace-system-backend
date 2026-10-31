@@ -1,7 +1,11 @@
 package com.example.online_marketplace_system.service;
 
+import com.example.online_marketplace_system.domain.ProductCategory;
 import com.example.online_marketplace_system.domain.Seller;
+import com.example.online_marketplace_system.repository.ProductCategoryRepository;
 import com.example.online_marketplace_system.repository.SellerRepository;
+
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +15,36 @@ import java.util.UUID;
 
 @Service
 public class SellerService {
+
     @Autowired
     private SellerRepository repository;
+
+    @Autowired
+    private ProductCategoryRepository productCategoryRepository;
+
+    @Transactional
+    public String addProductCategory(UUID sellerId, UUID productCategoryId) {
+        Optional<Seller> sellerOpt = repository.findById(sellerId);
+        if (sellerOpt.isEmpty()) {
+            return "The seller with that id does not exist";
+        }
+
+        Optional<ProductCategory> categoryOpt = productCategoryRepository.findById(productCategoryId);
+        if (categoryOpt.isEmpty()) {
+            return "That product category does not exist";
+        }
+
+        Seller seller = sellerOpt.get();
+        ProductCategory category = categoryOpt.get();
+
+        if (seller.getProductCategories().contains(category)) {
+            return "The seller already has that product category";
+        }
+
+        seller.getProductCategories().add(category);
+        repository.save(seller);
+        return "Product category added to the seller";
+    }
 
     public String save(Seller seller) {
         repository.save(seller);
@@ -49,8 +81,7 @@ public class SellerService {
         return "The seller with that id does not exist";
     }
 
-    public List<Seller>getSellersByProductCategory(String name){
-
+    public List<Seller> getSellersByProductCategory(String name) {
         return repository.findByProductCategoryName(name);
     }
 }

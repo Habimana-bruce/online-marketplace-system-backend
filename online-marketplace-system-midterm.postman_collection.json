@@ -540,6 +540,38 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/sellers/7b107428-d0cd-45eb-a96e-1d53b1efd6e9/product-categories/982c7967-c354-439e-9fd9-50933a",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/sellers/7b107428-d0cd-45eb-a96e-1d53b1efd6e9/product-categories/982c7967-c354-439e-9fd9-50933ab05617",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sellers",
+            "7b107428-d0cd-45eb-a96e-1d53b1efd6e9",
+            "product-categories",
+            "982c7967-c354-439e-9fd9-50933ab05617"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

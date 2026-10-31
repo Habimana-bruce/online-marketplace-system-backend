@@ -14,23 +14,34 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/sellers")
 public class SellerController {
-    @Autowired
-    private SellerService service;
 
-    @PostMapping("/save")
-    public ResponseEntity<String> save(@RequestBody Seller seller) {
-        String msg = service.save(seller);
-        return ResponseEntity.status(HttpStatus.CREATED).body(msg);
+    @Autowired
+    private SellerService sellerService;
+
+    @PutMapping("/{sellerId}/product-categories/{productCategoryId}")
+    public ResponseEntity<String> addProductCategory(
+            @PathVariable UUID sellerId, 
+            @PathVariable UUID productCategoryId) {
+        
+        String msg = sellerService.addProductCategory(sellerId, productCategoryId);
+
+        if (msg.contains("does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
+        }
+        if (msg.equals("The seller already has that product category")) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(msg);
+        }
+        return ResponseEntity.ok(msg);
     }
 
     @GetMapping("/all")
     public List<Seller> all() {
-        return service.getAll();
+        return sellerService.getAll();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Object> getById(@PathVariable UUID id) {
-        Optional<Seller> opt = service.getById(id);
+        Optional<Seller> opt = sellerService.getById(id);
         if (opt.isPresent()) {
             return ResponseEntity.ok(opt.get());
         }
@@ -38,26 +49,9 @@ public class SellerController {
                 .body("The seller with that id does not exist");
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<String> update(@PathVariable UUID id, @RequestBody Seller seller) {
-        String msg = service.update(id, seller);
-        if (msg.contains("does not exist")) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
-        }
-        return ResponseEntity.ok(msg);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable UUID id) {
-        String msg = service.delete(id);
-        if (msg.contains("does not exist")) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
-        }
-        return ResponseEntity.ok(msg);
-    }
-
-    @GetMapping("/by-product-category")
-    public List<Seller> getByProductCategory(@RequestParam("name")String name){
-        return  service.getSellersByProductCategory(name);
+    @PostMapping("/save")
+    public ResponseEntity<String> save(@RequestBody Seller seller) {
+        String msg = sellerService.save(seller);
+        return ResponseEntity.status(HttpStatus.CREATED).body(msg);
     }
 }
