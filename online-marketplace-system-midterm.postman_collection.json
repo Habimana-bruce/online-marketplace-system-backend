@@ -668,6 +668,42 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/product-reviews/save",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"productName\": \"Samsung Galaxy A15\", \r\n\"comment\": \"Arrived in two days and works well\", \r\n\"rating\": 5}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/product-reviews/save?purchaseId=57b04ba8-a412-45c6-8f76-f6d0ed53b270",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "product-reviews",
+            "save"
+          ],
+          "query": [
+            {
+              "key": "purchaseId",
+              "value": "57b04ba8-a412-45c6-8f76-f6d0ed53b270"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
