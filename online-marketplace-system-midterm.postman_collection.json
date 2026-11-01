@@ -831,6 +831,41 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/purchases/page",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/purchases/page?page=0&size=2&sort=purchaseDate,desc",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "purchases",
+            "page"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "0"
+            },
+            {
+              "key": "size",
+              "value": "2"
+            },
+            {
+              "key": "sort",
+              "value": "purchaseDate,desc"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

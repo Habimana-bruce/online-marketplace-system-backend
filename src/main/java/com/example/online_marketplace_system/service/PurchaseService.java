@@ -8,6 +8,9 @@ import com.example.online_marketplace_system.repository.PurchaseRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -132,6 +135,11 @@ public class PurchaseService {
     public String cancelPurchasesBySellerAndDate(UUID sellerId, LocalDate date) {
         int updatedCount = repository.cancelPurchasesBySellerAndDate(sellerId, date);
         return updatedCount + " purchases cancelled";
+    }
+
+    public Page<Purchase> getPurchasesPaginated(Pageable pageable){
+
+        return repository.findAll(pageable);
     }
 
 }
