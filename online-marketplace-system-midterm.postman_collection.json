@@ -704,6 +704,28 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/product-reviews/buyer/bruce27",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/product-reviews/buyer/bruce27",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "product-reviews",
+            "buyer",
+            "bruce27"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

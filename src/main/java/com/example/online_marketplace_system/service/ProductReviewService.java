@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -39,5 +40,9 @@ public class ProductReviewService {
         review.setReviewDate(LocalDate.now());
         reviewRepository.save(review);
         return "Product review saved successfully";
+    }
+
+    public List<ProductReview> getReviewsByBuyerUsername(String username) {
+        return reviewRepository.findByBuyerUsernameOrdered(username);
     }
 }

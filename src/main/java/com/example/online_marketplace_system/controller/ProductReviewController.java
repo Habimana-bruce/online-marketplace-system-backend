@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -29,5 +30,10 @@ public class ProductReviewController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(msg);
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(msg);
+    }
+
+    @GetMapping("/buyer/{username}")
+    public List<ProductReview> getBuyerReviews(@PathVariable String username) {
+        return service.getReviewsByBuyerUsername(username);
     }
 }
