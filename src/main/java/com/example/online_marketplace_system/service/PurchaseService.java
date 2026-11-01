@@ -123,4 +123,9 @@ public class PurchaseService {
     public List<Purchase> getPurchasesBetweenDates(LocalDate start, LocalDate end) {
         return repository.findByPurchaseDateBetweenOrderByPurchaseDateAsc(start, end);
     }
+
+    public List<Object[]> getPurchasesStatsByStatus() {
+        return repository.countPurchasesByStatus();
+    }
+
 }

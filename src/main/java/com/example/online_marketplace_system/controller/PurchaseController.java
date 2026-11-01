@@ -105,4 +105,9 @@ public class PurchaseController {
         return ResponseEntity.ok(msg);
     }
 
+    @GetMapping("/stats/by-status")
+    public List<Object[]> getPurchasesStatsByStatus() {
+        return service.getPurchasesStatsByStatus();
+    }
+
     }
