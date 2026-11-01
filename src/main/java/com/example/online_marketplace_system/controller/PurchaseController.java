@@ -69,18 +69,12 @@ public class PurchaseController {
     }
 
     @GetMapping("/page")
-    public Page<Purchase> getPurchasesPaginated(
+    public Page<Purchase> getPage(
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "5") int size,
-            @RequestParam(defaultValue = "purchaseDate,desc") String[] sort) {
+            @RequestParam(defaultValue = "5") int size) {
 
-        String sortBy = sort[0];
-        Sort.Direction direction = Sort.Direction.ASC;
-        if (sort.length > 1 && sort[1].equalsIgnoreCase("desc")) {
-            direction = Sort.Direction.DESC;
-        }
+        Pageable pageable = PageRequest.of(page, size, Sort.by("purachseDate").descending());
 
-        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, sortBy));
         return service.getPurchasesPaginated(pageable);
     }
 
