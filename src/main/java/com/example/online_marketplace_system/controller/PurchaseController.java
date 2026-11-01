@@ -92,7 +92,7 @@ public class PurchaseController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
         }
         if (msg.equals("That purchase has product reviews, delete them first")) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body(msg); // 409 Conflict
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(msg);
         }
         return ResponseEntity.ok(msg);
     }
