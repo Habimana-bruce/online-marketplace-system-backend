@@ -572,6 +572,102 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/sellers/454c2271-8f5f-418c-b46e-33a25b2c69d3/storefronts/a2755c64-dcb3-4f6b-b319-c3d9f6452bef",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/sellers/454c2271-8f5f-418c-b46e-33a25b2c69d3/storefronts/a2755c64-dcb3-4f6b-b319-c3d9f6452bef",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sellers",
+            "454c2271-8f5f-418c-b46e-33a25b2c69d3",
+            "storefronts",
+            "a2755c64-dcb3-4f6b-b319-c3d9f6452bef"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/sellers/454c2271-8f5f-418c-b46e-33a25b2c69d3/storefronts/cbd6c283-b352-4784-a5a2-aae5846aa4ad",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/sellers/454c2271-8f5f-418c-b46e-33a25b2c69d3/storefronts/cbd6c283-b352-4784-a5a2-aae5846aa4ad",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sellers",
+            "454c2271-8f5f-418c-b46e-33a25b2c69d3",
+            "storefronts",
+            "cbd6c283-b352-4784-a5a2-aae5846aa4ad"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/sellers/00000000-0000-0000-0000-000000000000/storefronts/a2755c64-dcb3-4f6b-b319-c3d9f6452bef",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/sellers/00000000-0000-0000-0000-000000000000/storefronts/a2755c64-dcb3-4f6b-b319-c3d9f6452bef",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "sellers",
+            "00000000-0000-0000-0000-000000000000",
+            "storefronts",
+            "a2755c64-dcb3-4f6b-b319-c3d9f6452bef"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

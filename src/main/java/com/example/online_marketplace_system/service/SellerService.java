@@ -2,8 +2,10 @@ package com.example.online_marketplace_system.service;
 
 import com.example.online_marketplace_system.domain.ProductCategory;
 import com.example.online_marketplace_system.domain.Seller;
+import com.example.online_marketplace_system.domain.Storefront;
 import com.example.online_marketplace_system.repository.ProductCategoryRepository;
 import com.example.online_marketplace_system.repository.SellerRepository;
+import com.example.online_marketplace_system.repository.StorefrontRepository;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,9 @@ public class SellerService {
 
     @Autowired
     private ProductCategoryRepository productCategoryRepository;
+
+    @Autowired
+    private StorefrontRepository storefrontRepository;
 
     @Transactional
     public String addProductCategory(UUID sellerId, UUID productCategoryId) {
@@ -44,6 +49,34 @@ public class SellerService {
         seller.getProductCategories().add(category);
         repository.save(seller);
         return "Product category added to the seller";
+    }
+
+    @Transactional
+    public String moveSellerToStorefront(UUID sellerId, UUID storefrontId) {
+        Optional<Seller> sellerOpt = repository.findById(sellerId);
+        if (sellerOpt.isEmpty()) {
+            return "The seller with that id does not exist";
+        }
+
+        Optional<Storefront> storefrontOpt = storefrontRepository.findById(storefrontId);
+        if (storefrontOpt.isEmpty()) {
+            return "That storefront does not exist";
+        }
+
+        Storefront storefront = storefrontOpt.get();
+
+        boolean isOccupied = repository.existsByStorefrontId(storefrontId);
+        if (isOccupied) {
+            Seller currentOccupant = repository.findByStorefrontId(storefrontId).orElse(null);
+            if (currentOccupant != null && !currentOccupant.getId().equals(sellerId)) {
+                return "Storefront is already occupied by another seller";
+            }
+        }
+
+        Seller seller = sellerOpt.get();
+        seller.setStorefront(storefront);
+        repository.save(seller);
+        return "Seller moved to storefront successfully";
     }
 
     public String save(Seller seller) {

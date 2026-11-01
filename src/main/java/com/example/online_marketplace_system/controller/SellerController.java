@@ -54,4 +54,26 @@ public class SellerController {
         String msg = sellerService.save(seller);
         return ResponseEntity.status(HttpStatus.CREATED).body(msg);
     }
+
+    @PutMapping("/{sellerId}/storefronts/{storefrontId}")
+
+public ResponseEntity<String> moveSellerToStorefront(
+
+@PathVariable UUID sellerId,
+@PathVariable UUID storefrontId){
+
+String msg = sellerService.moveSellerToStorefront(sellerId, storefrontId);
+
+if(msg.contains("does not exist")) {
+return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
+}
+
+if(msg.equals("Storefront is already occupied by another seller")) {
+
+return ResponseEntity.status(HttpStatus.CONFLICT).body(msg);
+}
+
+return ResponseEntity.ok(msg);
+}
+
 }
