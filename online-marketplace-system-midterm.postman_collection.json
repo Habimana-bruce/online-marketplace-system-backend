@@ -770,6 +770,46 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/purchases/cancel-day",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/purchases/cancel-day?sellerId=7b107428-d0cd-45eb-a96e-1d53b1efd6e9&date=2026-10-20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "purchases",
+            "cancel-day"
+          ],
+          "query": [
+            {
+              "key": "sellerId",
+              "value": "7b107428-d0cd-45eb-a96e-1d53b1efd6e9"
+            },
+            {
+              "key": "date",
+              "value": "2026-10-20"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

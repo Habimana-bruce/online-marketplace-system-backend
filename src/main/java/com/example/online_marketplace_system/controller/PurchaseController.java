@@ -110,4 +110,15 @@ public class PurchaseController {
         return service.getPurchasesStatsByStatus();
     }
 
+    @PatchMapping("/cancel-day")
+    public  ResponseEntity<String> cancelDay(
+    
+        @RequestParam("sellerId") UUID sellerId,
+
+        @RequestParam("date") LocalDate date) {
+
+            String message = service.cancelPurchasesBySellerAndDate(sellerId, date);
+            return ResponseEntity.ok(message);
+        }
+
     }

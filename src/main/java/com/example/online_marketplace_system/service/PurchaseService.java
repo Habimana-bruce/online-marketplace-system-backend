@@ -128,4 +128,10 @@ public class PurchaseService {
         return repository.countPurchasesByStatus();
     }
 
+    @Transactional
+    public String cancelPurchasesBySellerAndDate(UUID sellerId, LocalDate date) {
+        int updatedCount = repository.cancelPurchasesBySellerAndDate(sellerId, date);
+        return updatedCount + " purchases cancelled";
+    }
+
 }
