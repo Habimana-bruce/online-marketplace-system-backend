@@ -28,5 +28,9 @@ public interface PurchaseRepository extends JpaRepository<Purchase, UUID>{
     @Transactional
     @Query("UPDATE Purchase p SET p.status = 'CANCELLED' WHERE p.seller.id = :sellerId AND p.purchaseDate = :date AND p.status != 'DELIVERED'")
     int cancelPurchasesBySellerAndDate(@Param("sellerId") UUID sellerId, @Param("date") LocalDate date);
+
+  long countByPurchaseDate(LocalDate purchaseDate);
+
+  long countByStatus(PurchaseStatus status);
 }
 

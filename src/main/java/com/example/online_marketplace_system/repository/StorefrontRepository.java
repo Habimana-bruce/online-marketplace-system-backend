@@ -13,4 +13,6 @@ public interface StorefrontRepository extends JpaRepository<Storefront, UUID> {
    @Query("Select sf FROM Storefront sf WHERE NOT EXISTS(SELECT s FROM Seller s Where s.storefront = sf) ORDER BY sf.storefrontNumber ASC")
    List<Storefront>  findFreeStorefronts();
 
+   @Query("SELECT COUNT(s) FROM Storefront s WHERE s NOT IN (SELECT sel.storefront FROM Seller sel WHERE sel.storefront IS NOT NULL)")
+   long countFreeStorefronts();
 }

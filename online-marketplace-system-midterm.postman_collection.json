@@ -810,6 +810,27 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/dashboard/summary",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/dashboard/summary",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "dashboard",
+            "summary"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
