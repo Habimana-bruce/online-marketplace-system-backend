@@ -45,4 +45,12 @@ public class ProductReviewService {
     public List<ProductReview> getReviewsByBuyerUsername(String username) {
         return reviewRepository.findByBuyerUsernameOrdered(username);
     }
+
+    public String deleteReview(UUID id) {
+        if (reviewRepository.existsById(id)) {
+            reviewRepository.deleteById(id);
+            return "Product review deleted successfully";
+        }
+        return "The product review with that id does not exist";
+    }
 }

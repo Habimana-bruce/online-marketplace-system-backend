@@ -59,16 +59,7 @@ public class PurchaseController {
         return ResponseEntity.ok(msg);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> delete(@PathVariable UUID id) {
 
-        String msg = service.delete(id);
-
-        if (msg.contains("does not exist")) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
-        }
-        return ResponseEntity.ok(msg);
-    }
 
     @GetMapping("/by-status")
 
@@ -97,6 +88,19 @@ public class PurchaseController {
         }
         if (msg.startsWith("Cannot change status")) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(msg);
+        }
+        return ResponseEntity.ok(msg);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable UUID id) {
+        String msg = service.delete(id);
+
+        if (msg.contains("does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
+        }
+        if (msg.equals("That purchase has product reviews, delete them first")) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(msg); // 409 Conflict
         }
         return ResponseEntity.ok(msg);
     }

@@ -726,6 +726,28 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "http://localhost:8080/api/product-reviews/delete/ad4c0418-cba5-46f6-a176-80f26359b47d",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/product-reviews/delete/ad4c0418-cba5-46f6-a176-80f26359b47d",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "product-reviews",
+            "delete",
+            "ad4c0418-cba5-46f6-a176-80f26359b47d"
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

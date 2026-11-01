@@ -2,6 +2,7 @@ package com.example.online_marketplace_system.service;
 
 import com.example.online_marketplace_system.domain.Purchase;
 import com.example.online_marketplace_system.domain.PurchaseStatus;
+import com.example.online_marketplace_system.repository.ProductReviewRepository;
 import com.example.online_marketplace_system.repository.PurchaseRepository;
 
 import jakarta.transaction.Transactional;
@@ -18,6 +19,22 @@ public class PurchaseService {
 
     @Autowired
     private PurchaseRepository repository;
+
+    @Autowired
+    private ProductReviewRepository productReviewRepository;
+
+    public String delete(UUID id) {
+        if (!repository.existsById(id)) {
+            return "The purchase with that id does not exist";
+        }
+
+        if (productReviewRepository.existsByPurchaseId(id)) {
+            return "That purchase has product reviews, delete them first";
+        }
+
+        repository.deleteById(id);
+        return "Purchase deleted successfully";
+    }
 
     @Transactional
     public String save(Purchase purchase) {
@@ -97,13 +114,7 @@ public class PurchaseService {
         return "Purchase status updated successfully";
     }
 
-    public String delete(UUID id) {
-        if (repository.existsById(id)) {
-            repository.deleteById(id);
-            return "Purchase deleted successfully";
-        }
-        return "The purchase with that id does not exist";
-    }
+
 
     public List<Purchase> getPurchasesByStatus(PurchaseStatus status) {
         return repository.findByStatusOrderByPurchaseDateAsc(status);

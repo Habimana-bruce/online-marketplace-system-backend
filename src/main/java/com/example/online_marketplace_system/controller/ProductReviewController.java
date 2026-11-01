@@ -36,4 +36,14 @@ public class ProductReviewController {
     public List<ProductReview> getBuyerReviews(@PathVariable String username) {
         return service.getReviewsByBuyerUsername(username);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> deleteReview(@PathVariable UUID id) {
+        String msg = service.deleteReview(id);
+
+        if (msg.equals("The product review with that id does not exist")) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(msg);
+        }
+        return ResponseEntity.ok(msg);
+    }
 }
